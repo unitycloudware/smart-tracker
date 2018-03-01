@@ -1,0 +1,2 @@
+# Internal configuration file for smart-tracker
+ucw.smarttracker.version=${build.number}

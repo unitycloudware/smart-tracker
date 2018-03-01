@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nsys-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugin-version="1">
+
+    <!-- Plugin Info -->
+
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${build.number}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+
+    <!-- Plugin Modules -->
+
+    <management-agent key="ucw-smarttracker" name="UCW Smart Tracker"
+                      class="com.unitycloudware.portal.tutorial.smarttracker.plugin.SmartTrackerPlugin">
+        <dependency>org.nsys.daemon:scheduler</dependency>
+    </management-agent>
+
+    <!-- Main Navigation [BEGIN] -->
+
+    <navigation-section key="ucw-smarttracker_nav-main_smarttracker" name="UCW Smart Tracker"
+                        location="system.top.navigation.bar/ucw.smarttracker" weight="1000">
+        <label>Smart Tracker</label>
+        <description>UCW Smart Tracker</description>
+    </navigation-section>
+
+    <navigation-item key="ucw-smarttracker_nav-main_dashboard" name="UCW Smart Tracker Dashboard"
+                     section="system.top.navigation.bar/ucw.smarttracker" weight="0">
+        <label>UCW Smart Tracker</label>
+        <link>/dashboard/view/ucw-smarttracker</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
+    <!-- Main Navigation [END] -->
+
+    <!-- Navigation 'ucw.smarttracker.dashboard.header.actions' [BEGIN] -->
+
+    <navigation-section key="ucw-smarttracker_dashboard-header-actions" name="UCW Smart Tracker Dashboard Header Actions"
+                        location="ucw.smarttracker.dashboard.header.actions" weight="0">
+        <label>Dashboard Header Actions</label>
+    </navigation-section>
+
+    <navigation-item key="ucw-smarttracker_dashboard-header-actions_dashboard" name="UCW Smart Tracker Dashboard"
+                     section="ucw.smarttracker.dashboard.header.actions" weight="0">
+        <label>Dashboard</label>
+        <link>/dashboard/view/ucw-smarttracker</link>
+    </navigation-item>
+
+    <!-- Navigation 'ucw.smarttracker.dashboard.header.actions' [END] -->
+
+    <!-- UCW Smart Tracker Web Resources [BEGIN] -->
+
+    <portal-resource key="ucw-smarttracker_geolocation-map-resources" name="UCW Smart Tracker Geolocation Map Web Resources">
+        <context>ucw.smarttracker.geolocation.map</context>
+        <resource type="download" name="geolocation-map.js" location="/resources/js/geolocation-map.js" />
+        <resource type="download" name="geolocation-map.css" location="/resources/css/geolocation-map.css" />
+    </portal-resource>
+
+    <!-- UCW Smart Tracker Web Resources [END] -->
+
+    <!-- Dashboard Gadgets [BEGIN] -->
+
+    <dashboard key="ucw-smarttracker_dashboard" name="UCW Smart Tracker Dashboard">
+        <description>This dashboard displays data for geolocation coordinates from GPS modules.</description>
+        <label>Smart Tracker</label>
+        <viewId>ucw-smarttracker</viewId>
+        <imageUri>${portalResourcesUrl}/resources/images/ucw_logo.png</imageUri>
+        <actionButtons>ucw.smarttracker.dashboard.header.actions</actionButtons>
+    </dashboard>
+
+    <dashboard-gadget key="ucw-smarttracker_geolocation-data-gadget" name="Geolocation Data Gadget"
+                      class="com.unitycloudware.portal.tutorial.smarttracker.gadget.GeolocationDataGadget">
+        <description>Displays a table with geolocation coordinates from GPS modules.</description>
+        <label>Geolocation Data</label>
+        <column>left</column>
+        <order>0</order>
+        <view>ucw-smarttracker</view>
+    </dashboard-gadget>
+
+    <dashboard-gadget key="ucw-smarttracker_geolocation-map-gadget" name="Geolocation Map Gadget"
+                      class="com.unitycloudware.portal.tutorial.smarttracker.gadget.GeolocationMapGadget">
+        <description>Displays a map with geolocation coordinates from GPS modules.</description>
+        <label>Geolocation Map</label>
+        <column>right</column>
+        <order>0</order>
+        <view>ucw-smarttracker</view>
+    </dashboard-gadget>
+
+    <!-- Dashboard Gadgets [END] -->
+
+</nsys-plugin>

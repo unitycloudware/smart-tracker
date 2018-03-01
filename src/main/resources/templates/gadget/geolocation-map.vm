@@ -1,0 +1,8 @@
+$portalResourceManager.requireResourcesForContext("ucw.smarttracker.geolocation.map")
+
+<br/>
+<div id="location-map" class="location-map"></div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB39lqCBWjMzIagsSuQ44e8OHFrRyw34is&callback=initLocationMap">
+</script>
+<br/>
