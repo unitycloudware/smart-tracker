@@ -52,7 +52,7 @@ function initLocationMap() {
 
             } else {
                 for (i = 0; i < response.length; i++) {
-                    var locationData = {lat: response[i].lattitude, lng: response[i].longitude};
+                    var locationData = {lat: response[i].latitude, lng: response[i].longitude};
 
                     marker = new google.maps.Marker({
                         position: locationData,
@@ -65,7 +65,7 @@ function initLocationMap() {
                     google.maps.event.addListener(marker, 'click', (function(marker, i) {
                         return function() {
                             var locationInfo = "Location # " + (i + 1) +
-                                               ", Lat: " + response[i].lattitude +
+                                               ", Lat: " + response[i].latitude +
                                                ", Lng: " + response[i].longitude;
 
                             infowindow.setContent(locationInfo);

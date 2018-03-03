@@ -13,16 +13,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GeolocationData {
-    private double lattitude;
+    private double latitude;
     private double longitude;
     private long timestamp;
 
-    public double getLattitude() {
-        return lattitude;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setLattitude(double lattitude) {
-        this.lattitude = lattitude;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
     public double getLongitude() {
@@ -44,15 +44,15 @@ public class GeolocationData {
     @Override
     public String toString() {
         return "GeolocationData{" +
-                "lattitude=" + lattitude +
+                "latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", timestamp=" + timestamp +
                 '}';
     }
 
-    public static GeolocationData create(final double lattitude, final double longitude, final long timestamp) {
+    public static GeolocationData create(final double latitude, final double longitude, final long timestamp) {
         GeolocationData geolocationData = new GeolocationData();
-        geolocationData.setLattitude(lattitude);
+        geolocationData.setLatitude(latitude);
         geolocationData.setLongitude(longitude);
         geolocationData.setTimestamp(timestamp);
         return geolocationData;

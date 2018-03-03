@@ -95,12 +95,12 @@ public class SensorDataGeneratorJob extends AbstractJob {
 
             if (direction == 1) {
                 data = GeolocationData.create(
-                        lastData.getLattitude(),
+                        lastData.getLatitude(),
                         lastData.getLongitude() + RandomRange.getRandomDouble(-0.005, 0.005),
                         TimeUtils.getNow().getTime());
             } else {
                 data = GeolocationData.create(
-                        lastData.getLattitude() + RandomRange.getRandomDouble(-0.005, 0.005),
+                        lastData.getLatitude() + RandomRange.getRandomDouble(-0.005, 0.005),
                         lastData.getLongitude(),
                         TimeUtils.getNow().getTime());
             }

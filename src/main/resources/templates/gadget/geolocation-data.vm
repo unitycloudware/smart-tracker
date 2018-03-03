@@ -6,7 +6,7 @@
 <table class="aui aui-table-interactive aui-table-sortable">
     <thead>
     <tr>
-        <th id="data-lattitude">Lattitude</th>
+        <th id="data-latitude">Latitude</th>
         <th id="data-longitude">Longitude</th>
         <th id="data-timestamp">Timestamp</th>
     </tr>
@@ -14,7 +14,7 @@
     <tbody>
         #foreach ($d in $data)
         <tr>
-            <td headers="data-lattitude"><span class="aui-lozenge aui-lozenge-current">$String.format("%.2f", $!{d.lattitude})</span></td>
+            <td headers="data-latitude"><span class="aui-lozenge aui-lozenge-current">$String.format("%.2f", $!{d.latitude})</span></td>
             <td headers="data-longitude"><span class="aui-lozenge aui-lozenge-current">$String.format("%.2f", $!{d.longitude})</span></td>
             <td headers="data-timestamp">$date.format("yyyy-MM-dd HH:mm:ss", $!{d.timestamp})</td>
         </tr>
