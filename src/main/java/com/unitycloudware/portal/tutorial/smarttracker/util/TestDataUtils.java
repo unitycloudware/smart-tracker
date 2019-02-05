@@ -83,9 +83,7 @@ public class TestDataUtils {
         project.setName(PROJECT_NAME);
         project.setDescription(PROJECT_DESC);
 
-        if (getProjectManager().addProject(project) != null) {
-            getProjectManager().configureProject(PROJECT_KEY);
-        }
+        getProjectManager().addProject(project);
     }
 
     protected void createDevice() {
